@@ -1,5 +1,6 @@
 pipeline {
   agent {
+    label 'build-agent'
     kubernetes {
       inheritFrom 'build-agent'
       defaultContainer 'jnlp'
@@ -52,7 +53,7 @@ pipeline {
   }
 
   environment {
-    DOCKER_IMAGE_NAME = 'eilonwy/blockbuster' //REPLACE IMAGE NAME HERE
+    DOCKER_IMAGE_NAME = 'eilonwy/blockbuster'
   }
 
   stages {
@@ -71,12 +72,11 @@ pipeline {
       steps {
         sh 'java -version'
         sh 'chmod +x mvnw'
-        withSonarQubeEnv(credentialsId: 'sonar-blockbuster-token', installationName: 'sonarcloud') { //REPLACE TOKEN
+        withSonarQubeEnv(credentialsId: 'sonar-blockbuster-token', installationName: 'sonarcloud') {
           sh './mvnw -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar'
         }
       }
     }
-
     stage('Sonar Quality Gate') {
       steps {
         script {
@@ -90,7 +90,7 @@ pipeline {
     stage('Push Docker Image') {
       steps {
         script {
-          docker.withRegistry('https://registry.hub.docker.com', 'docker-blockbuster-token') { //REPLACE TOKEN
+          docker.withRegistry('https://registry.hub.docker.com', 'docker-blockbuster-token') {
             app.push('latest')
             app.push("${env.BUILD_NUMBER}")
             app.push("${env.GIT_COMMIT}")
@@ -107,9 +107,9 @@ pipeline {
         script {
           container('kubectl') {
             withKubeConfig([credentialsId: 'kubeconfig']) {
-              sh "aws eks update-kubeconfig --name matt-oberlies-sre-943" //REPLACE CLUSTER NAME
-              sh "kubectl set image -n blockbuster deployment/vg-rental-canary vg-rental-canary=$DOCKER_IMAGE_NAME:$GIT_COMMIT" //REPLACE NAMESPACE AND DEPLOYMENT
-              sh "kubectl scale -n blockbuster deployment.apps/vg-rental-canary --replicas=$CANARY_REPLICAS" //REPLACE NAMESPACE AND DEPLOYMENT
+              sh "aws eks update-kubeconfig --name matt-oberlies-sre-943"
+              sh "kubectl set image -n blockbuster deployment/vg-rental-canary vg-rental-canary=$DOCKER_IMAGE_NAME:$GIT_COMMIT"
+              sh "kubectl scale -n blockbuster deployment.apps/vg-rental-canary --replicas=$CANARY_REPLICAS"
             }
           }
         }
@@ -126,9 +126,9 @@ pipeline {
         script {
           container('kubectl') {
             withKubeConfig([credentialsId: 'kubeconfig']) {
-              sh "aws eks update-kubeconfig --name matt-oberlies-sre-943" //REPLACE CLUSTER NAME
-              sh "kubectl set image -n blockbuster deployment/vg-rental vg-rental=$DOCKER_IMAGE_NAME:$GIT_COMMIT" //REPLACE NAMESPACE AND DEPLOYMENT
-              sh "kubectl scale -n blockbuster deployment.apps/vg-rental-canary --replicas=$CANARY_REPLICAS" //REPLACE NAMESPACE AND DEPLOYMENT
+              sh "aws eks update-kubeconfig --name matt-oberlies-sre-943"
+              sh "kubectl set image -n blockbuster deployment/vg-rental vg-rental=$DOCKER_IMAGE_NAME:$GIT_COMMIT"
+              sh "kubectl scale -n blockbuster deployment.apps/vg-rental-canary --replicas=$CANARY_REPLICAS"
             }
           }
         }
@@ -140,8 +140,8 @@ pipeline {
         script {
           container('kubectl') {
             withKubeConfig([credentialsId: 'kubeconfig']) {
-              sh "aws eks update-kubeconfig --name matt-oberlies-sre-943" //REPLACE CLUSTER
-              sh 'kubectl get pods -n blockbuster' //REPLACE NAMESPACE
+              sh "aws eks update-kubeconfig --name matt-oberlies-sre-943"
+              sh 'kubectl get pods -n blockbuster'
             }
           }
         }

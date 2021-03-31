@@ -17,7 +17,9 @@ spring:
     hibernate:
       ddl-auto: update
   cloud:
-    kubernetes:      ribbon:        mode: POD
+    kubernetes:
+      ribbon:
+        mode: POD
 management:
   endpoints:
     web:
