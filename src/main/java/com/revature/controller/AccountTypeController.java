@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.entity.AccountType;
 import com.revature.service.AccountTypeService;
-import com.revature.util.Logging;
 
 @RestController
 @RequestMapping("/acctype")

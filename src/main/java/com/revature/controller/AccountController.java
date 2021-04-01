@@ -6,7 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
+//TODO: decide weather we should remove this import and related unused field
+//import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,8 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.entity.Account;
 import com.revature.entity.User;
 import com.revature.service.AccountService;
-import com.revature.util.Logging;
-import com.sun.tools.sjavac.Log;
 
 
 @RestController
@@ -35,8 +34,8 @@ public class AccountController {
 		this.accservice = accservice;
 	}
 	
-	@Autowired
-	private DiscoveryClient discoveryClient;
+//	@Autowired
+//	private DiscoveryClient discoveryClient;
 
 //---------------Takes in the new account point total and saves it to database---------------
 
@@ -50,7 +49,7 @@ public class AccountController {
     	Account a = this.accservice.findById(acc.getAccId());
         log.debug("assigning points");
         a.setPoints(acc.getPoints());
-        Log.debug("User with ID: " + a.getUserId() + " has had their points updated");
+        log.debug("User with ID: " + a.getUserId() + " has had their points updated");
         this.accservice.addAccount(a);
         MDC.clear();
     }
