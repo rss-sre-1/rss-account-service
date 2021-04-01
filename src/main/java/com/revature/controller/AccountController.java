@@ -46,11 +46,11 @@ public class AccountController {
     	MDC.put("PUT event", "account/points endpoint, Event ID: " + queryID);
     	log.info("endpoint accdessed");
     	
-    	log.info("accessing DB and getting account speciphied in request body");
+    	log.debug("accessing DB and getting account speciphied in request body");
     	Account a = this.accservice.findById(acc.getAccId());
-        log.info("assigning points");
+        log.debug("assigning points");
         a.setPoints(acc.getPoints());
-        Log.info("User with ID: " + a.getUserId() + " has had their points updated");
+        Log.debug("User with ID: " + a.getUserId() + " has had their points updated");
         this.accservice.addAccount(a);
         MDC.clear();
     }
@@ -63,10 +63,10 @@ public class AccountController {
     	MDC.put("PUT event", "account/points/a endpoint, Event ID: " + queryID);
     	log.info("endpoint accdessed");
 
-    	log.info("accessing DB and getting account spesified in request body");
+    	log.debug("accessing DB and getting account spesified in request body");
     	Account a = this.accservice.findById(acc.getAccId());
         a.setPoints(a.getPoints() + acc.getPoints());
-        log.info(acc.getPoints() + " points added to account with ID: " + a.getUserId());
+        log.debug(acc.getPoints() + " points added to account with ID: " + a.getUserId());
         this.accservice.addAccount(a);
         MDC.clear();
     }
@@ -80,7 +80,7 @@ public class AccountController {
     	MDC.put("POST event", "account/new endpoint, Event ID: " + queryID);
     	log.info("endpoint accdessed");
     	
-    	log.info("account added with ID: " + acc.getAccId());
+    	log.debug("account added with ID: " + acc.getAccId());
         MDC.clear();
         return this.accservice.addAccount(acc);
         
@@ -94,15 +94,15 @@ public class AccountController {
     	int queryID = (int) (10000*Math.random());
     	MDC.put("POST event", "account/account endpoint, Event ID: " + queryID);
     	log.info("endpoint accdessed");
-    	log.info("accessing DB to find an account by provided ID number");
+    	log.debug("accessing DB to find an account by provided ID number");
     	Account a = this.accservice.findById(acc.getAccId());
     	if(a != null) {
-    		log.info("account found by ID");
+    		log.debug("account found by ID");
     	} else {
-    		log.info("account NOT found by ID");
+    		log.debug("account NOT found by ID");
 
     	}
-    	log.info("returning account found");
+    	log.debug("returning account found");
     	MDC.clear();
     	return a;
     }
@@ -115,7 +115,7 @@ public class AccountController {
     	int queryID = (int) (10000*Math.random());
     	MDC.put("POST event", "account/accounts endpoint, Event ID: " + queryID);
     	log.info("endpoint accdessed");
-    	log.info("accessing DB to find all accounts");
+    	log.idebugnfo("accessing DB to find all accounts");
     	MDC.clear();
     	return this.accservice.findAccountById(acc.getUserId());
     }
