@@ -67,7 +67,7 @@ public class AccountTypeController {
     	AccountType u = this.acctypeservice.findById(accType.getAccTypeId());
     	log.debug("updating account with passed value");
     	u.setType(accType.getType());
-    	log.debug("updating DB")
+    	log.debug("updating DB");
         this.acctypeservice.addAccountType(u);
     	MDC.clear();
     }

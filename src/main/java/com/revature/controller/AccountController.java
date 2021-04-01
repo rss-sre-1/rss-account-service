@@ -115,7 +115,7 @@ public class AccountController {
     	int queryID = (int) (10000*Math.random());
     	MDC.put("POST event", "account/accounts endpoint, Event ID: " + queryID);
     	log.info("endpoint accdessed");
-    	log.idebugnfo("accessing DB to find all accounts");
+    	log.debug("accessing DB to find all accounts");
     	MDC.clear();
     	return this.accservice.findAccountById(acc.getUserId());
     }
