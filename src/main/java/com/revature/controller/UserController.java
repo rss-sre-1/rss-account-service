@@ -37,7 +37,7 @@ public class UserController {
     public List<User> getAllUsers() {
     	int queryID = (int) (10000*Math.random());
     	MDC.put("POST event", "user/all endpoint, Event ID: " + queryID);
-    	log.info("endpoint accdessed");
+    	log.info("endpoint accessed");
     	log.debug("DB accessed to gett all users");
     	MDC.clear();
     	return userservice.getAllUsers();
@@ -48,7 +48,7 @@ public class UserController {
     public User addNewUser(@RequestBody User user) {
     	int queryID = (int) (10000*Math.random());
     	MDC.put("POST event", "user/new endpoint, Event ID: " + queryID);
-    	log.info("endpoint accdessed");
+    	log.info("endpoint accessed");
     	log.debug("encrypting new user password");
     	user.setPassword(encrypt.encode(user.getPassword()));
     	log.debug("setting email to all lowercase");
@@ -64,7 +64,7 @@ public class UserController {
     public User loginUser(@RequestBody User user) {
     	int queryID = (int) (10000*Math.random());
     	MDC.put("POST event", "user/login endpoint, Event ID: " + queryID);
-    	log.info("endpoint accdessed");
+    	log.info("endpoint accessed");
     	log.debug("converting email to lowercase");
     	log.debug("checking if credentials are correct");
     	User current = this.userservice.findUserByEmail(user.getEmail().toLowerCase());
@@ -89,7 +89,7 @@ public class UserController {
     public User findUserById(@RequestBody User user) {
     	int queryID = (int) (10000*Math.random());
     	MDC.put("POST event", "user/user endpoint, Event ID: " + queryID);
-    	log.info("endpoint accdessed");
+    	log.info("endpoint accessed");
     	log.debug("get the passed in userid and make sure the user exists");
     	User u = this.userservice.findById(user.getUserId());
     	if(u==null) {
@@ -108,7 +108,7 @@ public class UserController {
     public void updateInformation(@RequestBody User user) {
     	int queryID = (int) (10000*Math.random());
     	MDC.put("PUT event", "user/info endpoint, Event ID: " + queryID);
-    	log.info("endpoint accdessed");
+    	log.info("endpoint accessed");
     	log.debug("getting user with passed ID from DB");
     	User u = this.userservice.findById(user.getUserId());
     	log.debug("updating username");
@@ -175,7 +175,7 @@ public class UserController {
         } else {
         	log.info("adding admin");
         	u.setAdmin(true);
-        	log.debug("updating DB")
+        	log.debug("updating DB");
         	this.userservice.addUser(u);
         }
        	MDC.clear();

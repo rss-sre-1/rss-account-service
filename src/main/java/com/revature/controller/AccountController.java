@@ -43,7 +43,7 @@ public class AccountController {
     public void updatePoints(@RequestBody Account acc) {
     	int queryID = (int) (10000*Math.random());
     	MDC.put("PUT event", "account/points endpoint, Event ID: " + queryID);
-    	log.info("endpoint accdessed");
+    	log.info("endpoint accessed");
     	
     	log.debug("accessing DB and getting account speciphied in request body");
     	Account a = this.accservice.findById(acc.getAccId());
@@ -60,7 +60,7 @@ public class AccountController {
     public void addPoints(@RequestBody Account acc) {
     	int queryID = (int) (10000*Math.random());
     	MDC.put("PUT event", "account/points/a endpoint, Event ID: " + queryID);
-    	log.info("endpoint accdessed");
+    	log.info("endpoint accessed");
 
     	log.debug("accessing DB and getting account spesified in request body");
     	Account a = this.accservice.findById(acc.getAccId());
@@ -77,7 +77,7 @@ public class AccountController {
     public Account addAccount(@RequestBody Account acc) {
     	int queryID = (int) (10000*Math.random());
     	MDC.put("POST event", "account/new endpoint, Event ID: " + queryID);
-    	log.info("endpoint accdessed");
+    	log.info("endpoint accessed");
     	
     	log.debug("account added with ID: " + acc.getAccId());
         MDC.clear();
@@ -92,7 +92,7 @@ public class AccountController {
     	//TODO: change this endpoint to use 'get' method?
     	int queryID = (int) (10000*Math.random());
     	MDC.put("POST event", "account/account endpoint, Event ID: " + queryID);
-    	log.info("endpoint accdessed");
+    	log.info("endpoint accessed");
     	log.debug("accessing DB to find an account by provided ID number");
     	Account a = this.accservice.findById(acc.getAccId());
     	if(a != null) {
@@ -113,7 +113,7 @@ public class AccountController {
     	//TODO: change this endpoint to use 'get' method?
     	int queryID = (int) (10000*Math.random());
     	MDC.put("POST event", "account/accounts endpoint, Event ID: " + queryID);
-    	log.info("endpoint accdessed");
+    	log.info("endpoint accessed");
     	log.debug("accessing DB to find all accounts");
     	MDC.clear();
     	return this.accservice.findAccountById(acc.getUserId());

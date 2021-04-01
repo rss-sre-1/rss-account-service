@@ -37,7 +37,7 @@ public class AccountTypeController {
     public AccountType addAccountType(@RequestBody AccountType accType) {
     	int queryID = (int) (10000*Math.random());
     	MDC.put("POST event", "acctype/type endpoint, Event ID: " + queryID);
-    	log.info("endpoint accdessed");
+    	log.info("endpoint accessed");
     	log.debug(accType.getType() + " has been added");
     	MDC.clear();
     	return this.acctypeservice.addAccountType(accType);
@@ -48,8 +48,8 @@ public class AccountTypeController {
     @GetMapping(value="/all")
     public List<AccountType> getAllAccountType() {
     	int queryID = (int) (10000*Math.random());
-    	MDC.put("GET event", "acctype/type endpoint, Event ID: " + queryID);
-    	log.info("endpoint accdessed");
+    	MDC.put("GET event", "acctype/all endpoint, Event ID: " + queryID);
+    	log.info("endpoint accessed");
     	log.debug("getting all accoutTypes from DB");
     	MDC.clear();
     	return this.acctypeservice.getAllAccTypes();
@@ -60,8 +60,8 @@ public class AccountTypeController {
     @PutMapping(value="type/u")
     public void updateAccountType(@RequestBody AccountType accType) {
     	int queryID = (int) (10000*Math.random());
-    	MDC.put("PUT event", "acctype/type endpoint, Event ID: " + queryID);
-    	log.info("endpoint accdessed");
+    	MDC.put("PUT event", "acctype/type/u endpoint, Event ID: " + queryID);
+    	log.info("endpoint accessed");
     	log.debug("accessing account DB to get account");
     	AccountType u = this.acctypeservice.findById(accType.getAccTypeId());
     	log.debug("updating account with passed value");
