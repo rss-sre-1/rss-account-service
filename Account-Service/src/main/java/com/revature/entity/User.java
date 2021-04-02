@@ -9,27 +9,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 @Entity
-@Table(name = "USER_TABLE")
+@Table(name = "USERS_TABLE")
 public class User {
 
 	
 	
     @Column(name = "U_ID")
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "USER_PK_SEQ")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int userId;
     
-    @Column(name = "U_EMAIL", unique = true)
+    @Column(name = "U_EMAIL")
 	private String email;
     
     @Column(name = "U_PASSWORD")
 	private String password;
 
-    @Column(name = "U_PIC", nullable = true, columnDefinition = "BLOB")
+    @Column(name = "U_PIC", nullable = true, columnDefinition = "BYTEA")
     private byte[] profilePic;
     
     @Column(name = "FIRST_NAME")

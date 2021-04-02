@@ -13,7 +13,7 @@ public class Account {
 
     @Column(name = "ACC_ID")
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "ACCID_PK_SEQ")
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	private int accId;
 	
     //@OneToOne(targetEntity = User.class, cascade = CascadeType.ALL)
