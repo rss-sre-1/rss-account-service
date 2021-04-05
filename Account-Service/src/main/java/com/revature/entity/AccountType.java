@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "ACCTYPE_TABLE")
 public class AccountType {
 
-    @Column(name = "ACCTYPE_ID")
+	@Column(name = "ACCTYPE_ID")
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "ACCTYPEID_PK_SEQ")
 	private int accTypeId;
