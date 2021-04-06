@@ -3,28 +3,17 @@ kind: Service
 metadata:
   name: rss-account-service
   namespace: rss-account
-<<<<<<< HEAD
   labels:
     app: rss-account-service
   annotations:
     prometheus.io/path: /actuator/prometheus
     prometheus.io/port: "9000"
     prometheus.io/scrape: "true"
-=======
->>>>>>> 0f70cd486b5d0bce2b3cb3f1027be4631b7898c1
 spec:
   selector:
     app: rss-account
   ports:
-<<<<<<< HEAD
   - name: http
     protocol: TCP
     port: 9000
     targetPort: 9000
-=======
-    - name: http
-      protocol: TCP
-      port: 9999
-      targetPort: 9999
-  type: ClusterIP
->>>>>>> 0f70cd486b5d0bce2b3cb3f1027be4631b7898c1
