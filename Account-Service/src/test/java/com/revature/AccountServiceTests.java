@@ -23,7 +23,7 @@ public class AccountServiceTests {
 	private static User user;
 	private static AccountType accountType;
 	
-	 AccountService accountService = Mockito.mock(AccountService.class);
+	AccountService accountService = Mockito.mock(AccountService.class);
 
 	@BeforeClass
 	public void initialize() throws Exception {
