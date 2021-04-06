@@ -9,18 +9,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.dao.AccountDAO;
+import com.revature.dao.UserDAO;
 import com.revature.entity.Account;
+import com.revature.entity.User;
 
 @Service
 public class AccountService {
 
 	private AccountDAO accdao;
+	private UserDAO userdao;
 	
 	private static final Logger logger = LoggerFactory.getLogger(AccountService.class);
 	
 	@Autowired
-	public AccountService(AccountDAO accdao) {
+	public AccountService(AccountDAO accdao, UserDAO userdao) {
 		this.accdao = accdao;
+		this.userdao = userdao;
 	}
 
     public List<Account> getAllUsers() {
@@ -51,7 +55,8 @@ public class AccountService {
     	MDC.put("User ID", Integer.toString(userId));
     	logger.info("Finding account by user id");
     	MDC.clear();
-    	return this.accdao.findAccountByUserId(userId);
+    	User u = userdao.findById(userId).get();
+    	return this.accdao.findAccountByUser(u);
     }
     
 }

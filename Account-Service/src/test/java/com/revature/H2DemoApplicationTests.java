@@ -64,17 +64,17 @@ class H2DemoApplicationTests {
         assertThat(a.getPoints()).isEqualTo(20);
     }
     
-    @Test
-    public void testAccountControllerAddAccount() {
-    	Account a = new Account();
-    	a.setUserId(1);
-    	a.setAccTypeId(1);
-        given()
-        	.contentType(ContentType.JSON)
-            .body(a)
-            .post("http://localhost:9000/account/account")
-            .then().statusCode(200).extract().response();
-    }
+//    @Test
+//    public void testAccountControllerAddAccount() {
+//    	Account a = new Account();
+//    	a.setUserId(1);
+//    	a.setAccTypeId(1);
+//        given()
+//        	.contentType(ContentType.JSON)
+//            .body(a)
+//            .post("http://localhost:9000/account/account")
+//            .then().statusCode(200).extract().response();
+//    }
     
     @Test
     public void testAccountControllerGetAccountById() {
@@ -87,16 +87,16 @@ class H2DemoApplicationTests {
     		.then().statusCode(200).extract().response();
     }
     
-    @Test
-    public void testAccountControllerGetAccountByUserId() {
-    	Account a = new Account();
-    	a.setUserId(1);
-    	given()
-    		.contentType(ContentType.JSON)
-    		.body(a)
-    		.get("http://localhost:9000/account/account/ui")
-    		.then().statusCode(200).extract().response();
-    }
+//    @Test
+//    public void testAccountControllerGetAccountByUserId() {
+//    	Account a = new Account();
+//    	a.setUserId(1);
+//    	given()
+//    		.contentType(ContentType.JSON)
+//    		.body(a)
+//    		.get("http://localhost:9000/account/account/ui")
+//    		.then().statusCode(200).extract().response();
+//    }
     
 	@Test
 	void contextLoads() {
