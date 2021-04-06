@@ -7,7 +7,7 @@ metadata:
     app: rss-account-service
   annotations:
     prometheus.io/path: /actuator/prometheus
-    prometheus.io/port: "9000"
+    prometheus.io/port: "9999"
     prometheus.io/scrape: "true"
 spec:
   selector:
@@ -15,5 +15,6 @@ spec:
   ports:
   - name: http
     protocol: TCP
-    port: 9000
-    targetPort: 9000
+    port: 9999
+    targetPort: 9999
+  type: ClusterIP
