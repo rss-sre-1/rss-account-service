@@ -29,7 +29,7 @@ public class MockitoTestingAccountType {
 	public void initialize() throws Exception {
 		user = new User(1, "email@email.com", "password", null, "firstname", "lastname", false);
 		accountType = new AccountType("test");
-		account = new Account(1, 1, 1, 0);
+		account = new Account(1, user, accountType, 0);
 	}
 
 	@Test

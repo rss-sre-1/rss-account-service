@@ -49,7 +49,7 @@ public class AccountController {
     	Account a = this.accservice.findById(acc.getAccId());
         log.debug("assigning points");
         a.setPoints(acc.getPoints());
-        log.debug("User with ID: " + a.getUserId() + " has had their points updated");
+        log.debug("User with ID: " + a.getUser().getUserId() + " has had their points updated");
         this.accservice.addAccount(a);
         MDC.clear();
     }
@@ -65,7 +65,7 @@ public class AccountController {
     	log.debug("accessing DB and getting account spesified in request body");
     	Account a = this.accservice.findById(acc.getAccId());
         a.setPoints(a.getPoints() + acc.getPoints());
-        log.debug(acc.getPoints() + " points added to account with ID: " + a.getUserId());
+        log.debug(acc.getPoints() + " points added to account with ID: " + a.getUser());
         this.accservice.addAccount(a);
         MDC.clear();
     }

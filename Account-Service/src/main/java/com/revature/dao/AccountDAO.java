@@ -7,11 +7,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.revature.entity.Account;
+import com.revature.entity.User;
 
 @Repository
 public interface AccountDAO extends JpaRepository<Account, Integer> {
 	
-	public List<Account> findAccountByUserId(int userId);
+	public List<Account> findAccountByUser(User user);
 	
 	public Account findAccountByAccId(int accId);
 }
