@@ -98,8 +98,8 @@ class H2DemoApplicationTests {
 //    		.then().statusCode(200).extract().response();
 //    }
     
-	@Test
-	void contextLoads() {
-	}
+// 	@Test
+// 	void contextLoads() {
+// 	}
 
 }
