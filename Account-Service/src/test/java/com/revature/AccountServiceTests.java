@@ -17,7 +17,7 @@ import com.revature.entity.User;
 import com.revature.service.AccountService;
 
 @SpringBootTest
-public class MockitoTestingAccount {
+public class AccountServiceTests {
 
 	private static Account account;
 	private static User user;
