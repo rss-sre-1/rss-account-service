@@ -2,11 +2,13 @@ apiVersion: v1
 kind: Service
 metadata:
   name: rss-account-service
+  namespace: rss-account
 spec:
   selector:
     app: rss-account-service
   ports:
     - name: http
       protocol: TCP
-      port: 9000
-      targetPort: 9000
+      port: 9999
+      targetPort: 9999
+  type: ClusterIP
