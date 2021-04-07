@@ -48,6 +48,7 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          curl -X POST https://account_service:1182ee6fa234d0bb88bb3d599e0ce09a1a@ad8d6edfec9aa4a79be8f07ba490356a-1499412652.us-east-1.elb.amazonaws.com/jenkins/job/rss-account-service/build?token=pokemon
   deploy: 
     # ---[ Use docker image from the build step and deploy on EKS ]---
     needs: [sonar_maven_build]
