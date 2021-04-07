@@ -15,36 +15,36 @@ public class User {
 
 	
 	
-    @Column(name = "U_ID")
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int userId;
+  @Column(name = "U_ID")
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private int userId;
     
-    @Column(name = "U_EMAIL")
+  @Column(name = "U_EMAIL")
 	private String email;
     
-    @Column(name = "U_PASSWORD")
+  @Column(name = "U_PASSWORD")
 	private String password;
 
-    @Column(name = "U_PIC", nullable = true, columnDefinition = "BYTEA")
-    private byte[] profilePic;
+  @Column(name = "U_PIC", nullable = true, columnDefinition = "BYTEA")
+  private byte[] profilePic;
     
-    @Column(name = "FIRST_NAME")
-    private String firstName;
+  @Column(name = "FIRST_NAME")
+  private String firstName;
     
-    @Column(name = "LAST_NAME")
-    private String lastName;
+  @Column(name = "LAST_NAME")
+  private String lastName;
     
-    @Column(name = "IS_ADMIN", columnDefinition = "boolean default false")
-    private boolean isAdmin;
+  @Column(name = "IS_ADMIN", columnDefinition = "boolean default false")
+  private boolean isAdmin;
 
 	@Column(name="user_discounted")
-    private Boolean userDiscounted;
+  private Boolean userDiscounted;
     
-    @Column(name="user_discount")
-    private Integer userDiscount;
+  @Column(name="user_discount")
+  private Integer userDiscount;
     
-    public Boolean isUserDiscounted() {
+  public Boolean isUserDiscounted() {
 		return userDiscounted;
 	}
 

@@ -12,12 +12,12 @@ import javax.persistence.Table;
 public class AccountType {
 
 	@Column(name = "ACCTYPE_ID")
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "ACCTYPEID_PK_SEQ")
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO, generator = "ACCTYPEID_PK_SEQ")
 	private int accTypeId;
     
-    @Column(name = "TYPE", unique = true, nullable = false)
-    private String type;
+  @Column(name = "TYPE", unique = true, nullable = false)
+  private String type;
 
 	public AccountType() {
 		super();

@@ -11,22 +11,22 @@ import javax.persistence.Table;
 @Table(name = "ACCOUNT_TABLE")
 public class Account {
 
-    @Column(name = "ACC_ID")
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "ACC_ID")
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
 	private int accId;
 	
-    //@OneToOne(targetEntity = User.class, cascade = CascadeType.ALL)
-    //@JoinColumn(name = "U_ID_FK", referencedColumnName = "U_ID")
-    @Column(name = "U_ID")
-    private int userId;
+  //@OneToOne(cascade = {CascadeType.ALL}, mappedBy= "")
+  //@JoinColumn(name = "U_ID_FK", referencedColumnName = "U_ID")
+  @Column(name = "U_ID")
+  private int userId;
 	
-    //@OneToOne(targetEntity = AccountType.class, cascade = CascadeType.ALL)
-    //@JoinColumn(name = "ACCTYPE_ID_FK", referencedColumnName = "ACCTYPE_ID")
-    @Column(name = "ACCTYPE_ID")
-    private int accTypeId;
+  //@OneToOne(cascade = {CascadeType.ALL})
+  //@JoinColumn(name = "ACCTYPE_ID_FK", referencedColumnName = "ACCTYPE_ID")
+  @Column(name = "ACCTYPE_ID")
+	private int accTypeId;
 	
-    @Column(name = "POINTS", columnDefinition = "INTEGER DEFAULT 0")
+  @Column(name = "POINTS", columnDefinition = "INTEGER DEFAULT 0")
 	private int points;
  
 
