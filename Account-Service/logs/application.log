@@ -8,6 +8,7 @@
 [2m2021-04-06 07:29:49.777[0;39m [  ] [32m INFO[0;39m [35m3428[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mcom.revature.H2DemoApplication          [0;39m [2m:[0;39m Started H2DemoApplication in 19.769 seconds (JVM running for 20.418)
 [2m2021-04-06 11:44:57.845[0;39m [  ] [32m INFO[0;39m [35m588797[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mcom.revature.H2DemoApplication          [0;39m [2m:[0;39m No active profile set, falling back to default profiles: default
 [2m2021-04-06 11:46:17.384[0;39m [  ] [32m INFO[0;39m [35m589552[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mcom.revature.H2DemoApplication          [0;39m [2m:[0;39m No active profile set, falling back to default profiles: default
+<<<<<<< HEAD
 [2m2021-04-06 12:01:31.745[0;39m [  ] [32m INFO[0;39m [35m13060[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mcom.revature.H2DemoApplication          [0;39m [2m:[0;39m No active profile set, falling back to default profiles: default
 [2m2021-04-06 12:08:22.255[0;39m [  ] [32m INFO[0;39m [35m18332[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mcom.revature.H2DemoApplication          [0;39m [2m:[0;39m No active profile set, falling back to default profiles: default
 [2m2021-04-06 12:09:25.514[0;39m [  ] [32m INFO[0;39m [35m17608[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mcom.revature.H2DemoApplication          [0;39m [2m:[0;39m No active profile set, falling back to default profiles: default
@@ -19,3 +20,15 @@
 [2m2021-04-06 12:32:56.491[0;39m [  ] [32m INFO[0;39m [35m17188[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mcom.revature.H2DemoApplication          [0;39m [2m:[0;39m Started H2DemoApplication in 15.422 seconds (JVM running for 1184.716)
 [2m2021-04-06 12:37:59.153[0;39m [  ] [32m INFO[0;39m [35m17188[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mcom.revature.H2DemoApplication          [0;39m [2m:[0;39m No active profile set, falling back to default profiles: default
 [2m2021-04-07 09:23:35.427[0;39m [  ] [32m INFO[0;39m [35m1972[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mcom.revature.H2DemoApplication          [0;39m [2m:[0;39m No active profile set, falling back to default profiles: default
+=======
+<<<<<<< HEAD
+[2m2021-04-06 12:35:59.560[0;39m [  ] [32m INFO[0;39m [35m597688[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mcom.revature.H2DemoApplication          [0;39m [2m:[0;39m No active profile set, falling back to default profiles: default
+[2m2021-04-06 12:37:19.823[0;39m [  ] [32m INFO[0;39m [35m598462[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mcom.revature.H2DemoApplication          [0;39m [2m:[0;39m No active profile set, falling back to default profiles: default
+[2m2021-04-06 12:39:24.358[0;39m [  ] [32m INFO[0;39m [35m599605[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mcom.revature.H2DemoApplication          [0;39m [2m:[0;39m No active profile set, falling back to default profiles: default
+[2m2021-04-06 12:40:34.021[0;39m [  ] [32m INFO[0;39m [35m600382[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mcom.revature.H2DemoApplication          [0;39m [2m:[0;39m No active profile set, falling back to default profiles: default
+=======
+[2m2021-04-06 15:36:33.801[0;39m [  ] [32m INFO[0;39m [35m11508[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mcom.revature.H2DemoApplication          [0;39m [2m:[0;39m No active profile set, falling back to default profiles: default
+[2m2021-04-06 15:42:45.868[0;39m [  ] [32m INFO[0;39m [35m9288[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mcom.revature.H2DemoApplication          [0;39m [2m:[0;39m No active profile set, falling back to default profiles: default
+[2m2021-04-06 15:42:58.820[0;39m [  ] [32m INFO[0;39m [35m9288[0;39m [2m---[0;39m [2m[  restartedMain][0;39m [36mcom.revature.H2DemoApplication          [0;39m [2m:[0;39m Started H2DemoApplication in 20.002 seconds (JVM running for 21.18)
+>>>>>>> d669543173f26fd61b8e72e155d4be907af79698
+>>>>>>> 9c441c70b545910f3130f5d05d00e2a9ab3f478a
