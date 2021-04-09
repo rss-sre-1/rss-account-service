@@ -1,6 +1,7 @@
 name: CI/CD
 on:
   repository_dispatch:
+    types: [trigger]
   push:
     branches:
        - canary
