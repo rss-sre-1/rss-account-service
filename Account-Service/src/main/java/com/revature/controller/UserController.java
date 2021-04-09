@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.entity.User;
+import com.revature.exceptions.EmptyBodyException;
+import com.revature.exceptions.PasswordIsEmptyException;
 import com.revature.service.UserService;
 import com.revature.util.Logging;
 
@@ -50,7 +52,11 @@ public class UserController {
     	MDC.put("POST event", "user/new endpoint, Event ID: " + queryID);
     	log.info("endpoint accessed");
     	log.debug("encrypting new user password");
-    	user.setPassword(encrypt.encode(user.getPassword()));
+    	try{
+    		user.setPassword(encrypt.encode(user.getPassword()));
+    	}catch(IllegalArgumentException ex) {
+    		throw new PasswordIsEmptyException();
+    	}
     	log.debug("setting email to all lowercase");
     	user.setEmail(user.getEmail().toLowerCase());
     	log.debug(user.getFirstName() + " " + user.getLastName() + " is being registered.");
@@ -106,6 +112,9 @@ public class UserController {
   //---------------Will Take in new user info and update the user in the database---------------
     @PutMapping(value="/info")
     public void updateInformation(@RequestBody User user) {
+    	if(user == null) {
+    		throw new EmptyBodyException();
+    	}
     	int queryID = (int) (10000*Math.random());
     	MDC.put("PUT event", "user/info endpoint, Event ID: " + queryID);
     	log.info("endpoint accessed");

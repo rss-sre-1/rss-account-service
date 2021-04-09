@@ -18,14 +18,26 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 	}
 	
 	@ExceptionHandler(AccountIdException.class)
-	public ResponseEntity<Object> handleUserNotFoundException(AccountIdException ex, WebRequest request){
+	public ResponseEntity<Object> handleAccountIdException(AccountIdException ex, WebRequest request){
 		String bodyOfResponse = "Account type does not exist";
 		return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
 	}
 	
 	@ExceptionHandler(AccountNotFoundException.class)
-	public ResponseEntity<Object> handleUserNotFoundException(AccountNotFoundException ex, WebRequest request){
+	public ResponseEntity<Object> handleAccountNotFoundException(AccountNotFoundException ex, WebRequest request){
 		String bodyOfResponse = "Account does not exist";
+		return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+	}
+	
+	@ExceptionHandler(PasswordIsEmptyException.class)
+	public ResponseEntity<Object> handlePasswordIsEmptyException(PasswordIsEmptyException ex, WebRequest request){
+		String bodyOfResponse = "Password is empty";
+		return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+	}
+	
+	@ExceptionHandler(EmptyBodyException.class)
+	public ResponseEntity<Object> handleEmptyBodyException(EmptyBodyException ex, WebRequest request){
+		String bodyOfResponse = "Body of post request is empty";
 		return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
 	}
 }
