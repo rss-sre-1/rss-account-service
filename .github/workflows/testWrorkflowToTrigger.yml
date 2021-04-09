@@ -1,0 +1,21 @@
+name: CI/CD
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [trigger]
+  push:
+    branches:
+       - canary
+#       - dev
+#       - master
+#   pull_request:
+#     types: [opened, synchronize, reopened]
+env:
+  ECR_REPOSITORY_PREFIX: ${{ secrets.ECR_REPOSITORY_PREFIX }}
+  ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
+  ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_PREFIX }}-${{ secrets.APP_NAME }}
+  IMAGE_TAG: ${{ github.sha }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  PROJECT_ROOT: Account-Service
+jobs:
