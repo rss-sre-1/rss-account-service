@@ -20,11 +20,11 @@ public class User {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private int userId;
     
-  @Column(name = "U_EMAIL")
-	private String email;
+  @Column(name = "U_EMAIL", unique=true)
+  private String email;
     
   @Column(name = "U_PASSWORD")
-	private String password;
+  private String password;
 
   @Column(name = "U_PIC", nullable = true, columnDefinition = "BYTEA")
   private byte[] profilePic;
@@ -38,7 +38,7 @@ public class User {
   @Column(name = "IS_ADMIN", columnDefinition = "boolean default false")
   private boolean isAdmin;
 
-	@Column(name="user_discounted")
+  @Column(name="user_discounted")
   private Boolean userDiscounted;
     
   @Column(name="user_discount")

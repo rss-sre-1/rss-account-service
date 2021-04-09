@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.revature.dao.UserDAO;
 import com.revature.entity.User;
+import com.revature.exceptions.UserNotFoundException;
 
 @Service
 public class UserService {
@@ -47,7 +48,7 @@ public class UserService {
     	MDC.put("email", email);
     	logger.info("Finding user by email");
     	MDC.clear();
-    	return this.userdao.findUserByEmail(email);
+    	return this.userdao.findUserByEmail(email).orElseThrow(() -> new UserNotFoundException());
     }
     
     public User findById(int userId) {
@@ -55,7 +56,7 @@ public class UserService {
     	MDC.put("user id", Integer.toString(userId));
     	logger.info("Finding user by id");
     	MDC.clear();
-        return this.userdao.findUserByUserId(userId);
+        return this.userdao.findUserByUserId(userId).orElseThrow(() -> new UserNotFoundException());
     }
     
 }

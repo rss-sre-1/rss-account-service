@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.revature.dao.AccountTypeDAO;
 import com.revature.entity.AccountType;
 import com.revature.entity.User;
+import com.revature.exceptions.AccountIdException;
 
 @Service
 public class AccountTypeService {
@@ -43,7 +44,7 @@ public class AccountTypeService {
 		MDC.put("AccountType id", Integer.toString(accTypeId));
     	logger.info("Finding AccountType by id");
     	MDC.clear();
-        return this.acctypedao.findAccTypeByAccTypeId(accTypeId);
+        return this.acctypedao.findAccTypeByAccTypeId(accTypeId).orElseThrow(() -> new AccountIdException());
     }
 	
 }

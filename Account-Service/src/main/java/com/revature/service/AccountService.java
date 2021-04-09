@@ -12,6 +12,8 @@ import com.revature.dao.AccountDAO;
 import com.revature.dao.UserDAO;
 import com.revature.entity.Account;
 import com.revature.entity.User;
+import com.revature.exceptions.AccountNotFoundException;
+import com.revature.exceptions.UserNotFoundException;
 
 @Service
 public class AccountService {
@@ -47,7 +49,7 @@ public class AccountService {
     	MDC.put("Account ID", Integer.toString(accId));
     	logger.info("FInding account by id");
     	MDC.clear();
-    	return this.accdao.findAccountByAccId(accId);
+    	return this.accdao.findAccountByAccId(accId).orElseThrow(() -> new AccountNotFoundException());
     }
     
     public List<Account> findAccountById(int userId) {
@@ -55,7 +57,7 @@ public class AccountService {
     	MDC.put("User ID", Integer.toString(userId));
     	logger.info("Finding account by user id");
     	MDC.clear();
-    	User u = userdao.findById(userId).get();
+    	User u = userdao.findById(userId).orElseThrow(() -> new UserNotFoundException());
     	return this.accdao.findAccountByUser(u);
     }
     
