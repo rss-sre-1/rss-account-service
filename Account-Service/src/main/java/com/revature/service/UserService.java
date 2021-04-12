@@ -50,6 +50,13 @@ public class UserService {
     	
         return this.userdao.save(user);
     }
+    
+    public User editUser(User user) {
+    	MDC.put("event", "edit");
+    	logger.info("Editing user");
+    	MDC.clear();
+    	return this.userdao.save(user);
+    }
 	
     public boolean existsByEmail(String email) {
     	if(email==null)

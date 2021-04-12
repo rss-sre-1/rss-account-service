@@ -130,7 +130,7 @@ public class UserController {
         }
         log.info(u.getUserId() + " has updated their information");
         MDC.clear();
-        this.userservice.addUser(u);
+        this.userservice.editUser(u);
     }
     
   //---------------Will take in new user password and encrypt before updating database---------------
@@ -149,7 +149,7 @@ public class UserController {
     	}
         log.info(u.getUserId() + " has updated their password");
         MDC.clear();
-        this.userservice.addUser(u);
+        this.userservice.editUser(u);
     }
     
   //---------------Will take an image and update it to the database---------------
@@ -164,7 +164,7 @@ public class UserController {
         u.setProfilePic(user.getProfilePic());
         log.info(u.getUserId() + " has updated their profile picture");
         MDC.clear();
-        this.userservice.addUser(u);
+        this.userservice.editUser(u);
     }
     
   //---------------Updates user to admin---------------
@@ -179,12 +179,12 @@ public class UserController {
         	log.info("user is already admin, revoking privlage");
         	u.setAdmin(false);
         	log.debug("saving user");
-        	this.userservice.addUser(u);
+        	this.userservice.editUser(u);
         } else {
         	log.info("adding admin");
         	u.setAdmin(true);
         	log.debug("updating DB");
-        	this.userservice.addUser(u);
+        	this.userservice.editUser(u);
         }
        	MDC.clear();
     }

@@ -49,10 +49,10 @@ public class User implements Serializable {
 	private boolean isAdmin = false;
 
 	@Column(name = "user_discounted")
-	private Boolean userDiscounted;
+	private Boolean userDiscounted = false;
 
 	@Column(name = "user_discount")
-	private Integer userDiscount;
+	private Integer userDiscount = 0;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
 	private Set<Account> accId = new HashSet<>();
