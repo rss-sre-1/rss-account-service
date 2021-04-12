@@ -67,8 +67,10 @@ pipeline {
                 script{
                     def response = readJSON file: "${DOCUTEST_RESPONSE}"
                     
-                    echo response.resultRef
+                    env.LOADTEST = env.CONTEXT_PATH + "/" + response.resultRef
                 }
+                
+                sh "echo ${env.LOADTEST}"
             }
         }
 
