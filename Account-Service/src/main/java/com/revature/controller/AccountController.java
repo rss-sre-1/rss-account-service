@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.entity.Account;
 import com.revature.entity.User;
-import com.revature.exceptions.EmptyBodyException;
 import com.revature.service.AccountService;
 
 
@@ -75,10 +74,7 @@ public class AccountController {
   //---------------Takes in the new account and adds it to the database---------------
 
     @PostMapping(value="/new")
-    public Account addAccount(@RequestBody Account acc) {
-    	if(acc == null) {
-    		throw new EmptyBodyException();
-    	}
+    public Account addAccount(@RequestBody Account acc){
     	int queryID = (int) (10000*Math.random());
     	MDC.put("POST event", "account/new endpoint, Event ID: " + queryID);
     	log.info("endpoint accessed");

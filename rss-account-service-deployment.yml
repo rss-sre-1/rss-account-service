@@ -42,17 +42,17 @@ spec:
         - containerPort: 9999
         imagePullPolicy: Always
         env:
-        - name: db_url
+        - name: DB_URL
           valueFrom:
             secretKeyRef:
               name: rss-account-database
               key: url
-        - name: username
+        - name: DB_USERNAME
           valueFrom:
             secretKeyRef:
               name: rss-account-database
               key: username
-        - name: password
+        - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
               name: rss-account-database

@@ -9,7 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.dao.UserDAO;
+import com.revature.entity.Account;
 import com.revature.entity.User;
+import com.revature.exceptions.EmailAlreadyExistsException;
+import com.revature.exceptions.InvalidNewUserException;
+import com.revature.exceptions.UserEmailValueEmptyException;
 import com.revature.exceptions.UserNotFoundException;
 
 @Service
@@ -36,11 +40,21 @@ public class UserService {
     	MDC.put("event", "create");
     	logger.info("Creating user");
     	MDC.clear();
+    	if(user.getEmail()==null)
+    		throw new InvalidNewUserException("Required request body is incorrect");
+    	
+    	user.setEmail(user.getEmail().toLowerCase());
+    	if(userdao.existsByEmail(user.getEmail()))
+    		throw new EmailAlreadyExistsException("Email already taken");
+    	
+    	
         return this.userdao.save(user);
     }
 	
     public boolean existsByEmail(String email) {
-    	return this.userdao.existsByEmail(email);
+    	if(email==null)
+    		throw new UserEmailValueEmptyException("The field value of email is empty");
+    	return this.userdao.existsByEmail(email.toLowerCase());
     }
    
     public User findUserByEmail(String email) {
@@ -48,7 +62,7 @@ public class UserService {
     	MDC.put("email", email);
     	logger.info("Finding user by email");
     	MDC.clear();
-    	return this.userdao.findUserByEmail(email).orElseThrow(() -> new UserNotFoundException());
+    	return this.userdao.findUserByEmail(email).orElseThrow(() -> new UserNotFoundException("User with email:" + email + "; dose not exist"));
     }
     
     public User findById(int userId) {
@@ -56,7 +70,7 @@ public class UserService {
     	MDC.put("user id", Integer.toString(userId));
     	logger.info("Finding user by id");
     	MDC.clear();
-        return this.userdao.findUserByUserId(userId).orElseThrow(() -> new UserNotFoundException());
+        return this.userdao.findUserByUserId(userId).orElseThrow(() -> new UserNotFoundException("User with id:" + userId + "; dose not exist"));
     }
     
 }
