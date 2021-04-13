@@ -72,7 +72,7 @@ pipeline {
                 
                 sh "sleep 60"
                 
-                sh "curl ${env.LOADTEST} -o ${DOCUTST_SUMMARY}"
+                sh "curl ${env.LOADTEST} -o ${DOCUTEST_SUMMARY}"
                 
                 script{
                     def summary = readJSON file: "${DOCUTEST_SUMMARY}"
