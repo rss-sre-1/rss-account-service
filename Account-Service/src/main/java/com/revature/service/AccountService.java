@@ -55,6 +55,14 @@ public class AccountService {
     	
         return this.accdao.save(acc);
     }
+    
+    public Account editAccount(Account acc) {
+    	MDC.put("event", "edit");
+    	logger.info("Editting account");
+    	MDC.clear();
+    	
+    	return this.accdao.save(acc);
+    }
 
     
     public Account findById(int accId) {

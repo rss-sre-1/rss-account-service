@@ -1,6 +1,7 @@
 package com.revature.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -30,15 +31,15 @@ public class AccountType implements Serializable {
 	@Column(name = "TYPE", unique = true)
 	private String type;
 
-	@OneToOne(mappedBy = "accountType")
+	@OneToMany(mappedBy = "accountType")
 	@JsonBackReference
-	private Account account;
+	private List<Account> account;
 
 	public AccountType() {
 		super();
 	}
 
-	public AccountType(@NotNull int accTypeId, @NotNull String type, Account account) {
+	public AccountType(@NotNull int accTypeId, @NotNull String type, List<Account> account) {
 		super();
 		this.accTypeId = accTypeId;
 		this.type = type;
@@ -60,12 +61,13 @@ public class AccountType implements Serializable {
 	public void setType(String type) {
 		this.type = type;
 	}
+	
 
-	public Account getAccount() {
+	public List<Account> getAccount() {
 		return account;
 	}
 
-	public void setAccount(Account account) {
+	public void setAccount(List<Account> account) {
 		this.account = account;
 	}
 
@@ -88,6 +90,7 @@ public class AccountType implements Serializable {
 
 	@Override
 	public String toString() {
-		return "AccountType [accTypeId=" + accTypeId + ", type=" + type + ", account=" + account + "]";
+		return "AccountType [accTypeId=" + accTypeId + ", type=" + type + "]";
 	}
+	
 }

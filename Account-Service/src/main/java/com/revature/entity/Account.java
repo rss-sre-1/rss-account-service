@@ -40,7 +40,7 @@ public class Account implements Serializable {
 //    private int userId;
 
 	@NotNull
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "ACCTYPE_ID", referencedColumnName = "ACCTYPE_ID")
 	private AccountType accountType;
 
@@ -95,10 +95,12 @@ public class Account implements Serializable {
 	public void setPoints(int points) {
 		this.points = points;
 	}
+	
+	
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(accId, accountType, points, user);
+		return Objects.hash(accId, points);
 	}
 
 	@Override
@@ -110,14 +112,14 @@ public class Account implements Serializable {
 			return false;
 		}
 		Account other = (Account) obj;
-		return accId == other.accId && Objects.equals(accountType, other.accountType) && points == other.points
-				&& Objects.equals(user, other.user);
+		return accId == other.accId && points == other.points;
 	}
 
 	@Override
 	public String toString() {
-		return "Account [accId=" + accId + ", user=" + user + ", accountType=" + accountType + ", points=" + points
-				+ "]";
+		return "Account [accId=" + accId + ", points=" + points + "]";
 	}
+	
+	
 
 }

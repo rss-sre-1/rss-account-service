@@ -23,6 +23,12 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
 	}
 	
+	@ExceptionHandler(AccountTypeAlreadyExistsException.class)
+	public ResponseEntity<Object> handleAccountTypeAlreadyExists(AccountTypeAlreadyExistsException ex, WebRequest request){
+		String bodyOfResponse = ex.getMessage();
+		return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+	}
+	
 	@ExceptionHandler(AccountTypeValueEmptyException.class)
 	public ResponseEntity<Object> handleAccountTypeValueEmpty(AccountTypeValueEmptyException ex, WebRequest request){
 		String bodyOfResponse = ex.getMessage();

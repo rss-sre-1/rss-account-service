@@ -50,7 +50,7 @@ public class AccountController {
         log.debug("assigning points");
         a.setPoints(acc.getPoints());
         log.debug("User with ID: " + a.getUser().getUserId() + " has had their points updated");
-        this.accservice.addAccount(a);
+        this.accservice.editAccount(a);
         MDC.clear();
     }
 

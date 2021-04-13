@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.revature.dao.AccountTypeDAO;
 import com.revature.entity.AccountType;
 import com.revature.exceptions.AccountIdException;
+import com.revature.exceptions.AccountTypeAlreadyExistsException;
 import com.revature.exceptions.AccountTypeValueEmptyException;
 
 @Service
@@ -38,6 +39,8 @@ public class AccountTypeService {
     	MDC.clear();
     	if(accType.getType()==null)
     		throw new AccountTypeValueEmptyException("The request body's type field is empty");
+    	if(acctypedao.existsByType(accType.getType()))
+    		throw new AccountTypeAlreadyExistsException("The type:" + accType.getType() + " already exists");
 		return acctypedao.save(accType);
 	}
 	

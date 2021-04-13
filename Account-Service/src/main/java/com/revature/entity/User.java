@@ -168,6 +168,8 @@ public class User implements Serializable {
 	public void setAccId(Set<Account> accId) {
 		this.accId = accId;
 	}
+	
+	
 
 	@Override
 	public int hashCode() {
@@ -197,10 +199,10 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", email=" + email + ", password=" + password + ", profilePic="
-				+ Arrays.toString(profilePic) + ", firstName=" + firstName + ", lastName=" + lastName + ", isAdmin="
-				+ isAdmin + ", userDiscounted=" + userDiscounted + ", userDiscount=" + userDiscount + ", accId=" + accId
+		return "User [userId=" + userId + ", email=" + email + ", password=" + password + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", userDiscounted=" + userDiscounted + ", userDiscount=" + userDiscount
 				+ "]";
 	}
-
+	
+	
 }

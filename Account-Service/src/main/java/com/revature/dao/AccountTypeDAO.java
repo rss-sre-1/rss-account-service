@@ -10,4 +10,5 @@ import com.revature.entity.AccountType;
 @Repository
 public interface AccountTypeDAO extends JpaRepository<AccountType, Integer> {
 	public Optional<AccountType> findAccTypeByAccTypeId(int accTypeId);
+	public boolean existsByType(String type);
 }
