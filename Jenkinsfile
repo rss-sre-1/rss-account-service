@@ -77,7 +77,7 @@ pipeline {
                 script{
                     def summary = readJSON file: "${DOCUTEST_SUMMARY}"
                     
-                    echo summary
+                    echo summary.resultsummaries[1].successFailPercentage
                 }
             }
         }
