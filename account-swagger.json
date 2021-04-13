@@ -1,5 +1,5 @@
 {
-  "basePath": "/account",
+  "basePath": "",
   "definitions": {
     "Account": {
       "properties": {
@@ -71,7 +71,7 @@
       "type": "object"
     }
   },
-  "host": "ad8d6edfec9aa4a79be8f07ba490356a-1499412652.us-east-1.elb.amazonaws.com",
+  "host": "rss-account-service-load-test.account.svc.cluster.local:9999",
   "info": {
     "description": "This is a sample Spring Boot RESTful service using springdoc-openapi and OpenAPI 3.",
     "title": "Contact Application API"
