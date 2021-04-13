@@ -4,20 +4,20 @@ metadata:
   name: rss-account-service-canary-deployment
   namespace: rss-account
   labels:
-    app: rss-account-service
+    app: rss-account-service-canary
     track: canary
 spec:
   replicas: 3
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: rss-account-service
-      track: stable
+      app: rss-account-service-canary
+      track: canary
   template:
     metadata:
       labels:
-        app: rss-account-service
-        track: stable
+        app: rss-account-service-canary
+        track: canary
     spec:
       volumes:
       - name: config
