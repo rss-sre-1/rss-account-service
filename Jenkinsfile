@@ -76,8 +76,10 @@ pipeline {
                 
                 script{
                     def summary = readJSON file: "${DOCUTEST_SUMMARY}"
-                    
-                    echo summary.resultsummaries[1].successFailPercentage.toString()
+                    for( sum in summary.resultsummaries){
+                        echo sum.uri.toString()
+                        echo sum.successFailPercentage.toString()
+                    }
                 }
             }
         }
