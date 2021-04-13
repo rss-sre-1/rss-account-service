@@ -43,9 +43,9 @@ spec:
         - containerPort: 9000
         imagePullPolicy: Always
         env:
-        - name: db_url
-          value: "account-data-postgresql.loadtesting.svc.cluster.local:5432"
-        - name: username
+        - name: DB_URL
+          value: "jdbc:postgresql://account-data-postgresql.loadtesting.svc.cluster.local:5432/postgresdb"
+        - name: DB_USERNAME
           value: "postgres"
-        - name: password
+        - name: DB_PASSWORD
           value: "test"
