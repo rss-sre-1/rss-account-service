@@ -52,7 +52,7 @@ pipeline {
     }
     
     environment {
-        DOCUTEST = "http://ad8d6edfec9aa4a79be8f07ba490356a-1499412652.us-east-1.elb.amazonaws.com/docutest/upload"
+        DOCUTEST = "/docutest/upload"
         CONTEXT_PATH = "http://ad8d6edfec9aa4a79be8f07ba490356a-1499412652.us-east-1.elb.amazonaws.com"
         DOCUTEST_RESPONSE = "response.json"
         DOCUTEST_SUMMARY = "summary.json"
@@ -62,7 +62,7 @@ pipeline {
         stage('Load Test') {
             steps {
                 sh "ls"
-                sh "curl -F file=@account-swagger.json -F 'LoadTestConfig={\"testPlanName\": \"ServiceNameService\", \"loops\": 1, \"threads\": 244, \"rampUp\": 1, \"followRedirects\" : false}' ${DOCUTEST} -o ${DOCUTEST_RESPONSE}"
+                sh "curl -F file=@account-swagger.json -F 'LoadTestConfig={\"testPlanName\": \"ServiceNameService\", \"loops\": 1, \"threads\": 244, \"rampUp\": 1, \"followRedirects\" : false}' ${CONTEXT_PATH}${DOCUTEST} -o ${DOCUTEST_RESPONSE}"
                 
                 script{
                     def response = readJSON file: "${DOCUTEST_RESPONSE}"
@@ -70,7 +70,15 @@ pipeline {
                     env.LOADTEST = env.CONTEXT_PATH + "/" + response.resultRef
                 }
                 
-                sh "echo ${env.LOADTEST}"
+                sh "sleep 60"
+                
+                sh "curl ${env.LOADTEST} -o ${DOCUTST_SUMMARY}"
+                
+                script{
+                    def summary = readJSON file: "${DOCUTEST_SUMMARY}"
+                    
+                    echo summary
+                }
             }
         }
 
