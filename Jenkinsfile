@@ -24,29 +24,6 @@ pipeline {
                 limits:
                   memory: "999Mi"
                   cpu: "0.5"
-            - name: dind-daemon
-              image: eilonwy/docker18-dind:latest
-              workingDir: /var/lib/docker
-              securityContext:
-                privileged: true
-              volumeMounts:
-              - name: docker-storage
-                mountPath: /var/lib/docker
-              resources:
-                requests:
-                  memory: "900Mi"
-                  cpu: "0.3"
-                limits:
-                  memory: "999Mi"
-                  cpu: "0.5"
-            - name: kubectl
-              image: eilonwy/kube-tools:latest
-              command:
-              - cat
-              tty: true
-            volumes:
-            - name: docker-storage
-              emptyDir: {}
           """
         }
     }
