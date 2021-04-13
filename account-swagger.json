@@ -71,7 +71,7 @@
       "type": "object"
     }
   },
-  "host": "rss-account-service-load-test.account.svc.cluster.local:9999",
+  "host": "rss-account-service-load-test.rss-account.svc.cluster.local:9999",
   "info": {
     "description": "This is a sample Spring Boot RESTful service using springdoc-openapi and OpenAPI 3.",
     "title": "Contact Application API"
